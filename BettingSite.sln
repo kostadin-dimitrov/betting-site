@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettingSite.WebServices", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettingSite.Infrastructure.Data", "BettingSite.Infrastructure.Data\BettingSite.Infrastructure.Data.csproj", "{76F3C448-AB38-48B9-8FFC-F93CC2792636}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettginSite.Web", "BettginSite.Web\BettginSite.Web.csproj", "{5146A0B7-4DC0-4029-A6A8-10DF89E0B056}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettingSite.Web", "BettginSite.Web\BettingSite.Web.csproj", "{5146A0B7-4DC0-4029-A6A8-10DF89E0B056}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{AE20BA3D-9C08-4D43-9103-E0534395D343}"
 EndProject

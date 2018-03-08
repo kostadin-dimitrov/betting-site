@@ -8,18 +8,16 @@ namespace BettingSite.Infrastructure.Data.Entities
 {
     public class Event
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
-        public int HomeTeam { get; set; }
+        public string Name { get; set; }
+        
+        public double HomeTeamOdds { get; set; }
 
-        public int AwayTeam { get; set; }
+        public double AwayTeamOdds { get; set; }
 
-        public decimal HomeTeamOdds { get; set; }
+        public double DrawOdds { get; set; }
 
-        public decimal AwayTeamOdds { get; set; }
-
-        public decimal DrawOdds { get; set; }
-
-        public DateTime StartTime { get; set; }
+        public DateTime StartDate { get; set; }
     }
 }

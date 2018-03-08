@@ -1,4 +1,5 @@
 ﻿using BettingSite.Infrastructure.Data;
+using BettingSite.Infrastructure.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,22 @@ namespace BettingSite.WebServices.Controllers
         {
             eventRepository = new EventRepository();
         }
+
+        [HttpGet]
         public IHttpActionResult GetEvents()
         {
-            var result = eventRepository.GetEvent();
+            var footbalEvent = new Event() {
+                Id = new Guid(),
+                Name = "Liverpool - Juventus",
+                HomeTeamOdds = 1.95,
+                DrawOdds = 3.15,
+                AwayTeamOdds = 2.2,
+                StartDate = new DateTime(2018, 12, 25, 22, 00, 00, DateTimeKind.Utc)
 
-            return Ok(result);
+            };
+            //var result = eventRepository.GetEvent();
+
+            return Ok(new List<Event>() { footbalEvent });
         }
     }
 }

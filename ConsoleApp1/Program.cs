@@ -12,13 +12,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            using (var ctx = new EventDb())
-            {
-                var stud = new Team() { Id = 1, Name = "Leverpool" };
-
-                ctx.Teams.Add(stud);
-                ctx.SaveChanges();
-            }
+            
         }
     }
 }
