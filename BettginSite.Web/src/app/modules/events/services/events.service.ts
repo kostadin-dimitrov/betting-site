@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FootballEvent } from '../models/event.model';
+import { SportEvent } from '../models/sport-event.model';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -10,7 +10,7 @@ export class EventsService {
 
     constructor(private http: HttpClient) { }
 
-    getEvents(): Observable<FootballEvent[]> {
-        return this.http.get<FootballEvent[]>(this.setRoute('event/GetEvents'));
+    getEvents(): Observable<SportEvent[]> {
+        return this.http.get<SportEvent[]>(this.setRoute('event/GetEvents'));
     }
 }

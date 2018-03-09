@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { EventsComponent } from './events.component';
+import { PreviewEventsComponent } from './components/preview-events.component';
 
 import { CommonModule } from '@angular/common';
 import { EventsRouterModule } from './events-routing.module';
@@ -10,7 +10,7 @@ import { EventsService } from './services/events.service';
         CommonModule,
         EventsRouterModule
     ],
-    declarations: [EventsComponent],
+    declarations: [PreviewEventsComponent],
     providers: [EventsService]
 })
 
