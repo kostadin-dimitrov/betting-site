@@ -14,6 +14,6 @@ namespace BettingSite.Infrastructure.Data
         {
 
         }
-        public DbSet<Event> Events { get; set; }
+        public DbSet<SportEvent> Events { get; set; }
     }
 }

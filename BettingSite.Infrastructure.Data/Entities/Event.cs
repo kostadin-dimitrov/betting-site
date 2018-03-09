@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BettingSite.Infrastructure.Data.Entities
 {
-    public class Event
+    public class SportEvent
     {
         public Guid Id { get; set; }
 
