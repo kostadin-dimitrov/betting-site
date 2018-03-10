@@ -4,14 +4,6 @@ th, td {
     padding: 0 20px;
 }
 
-.rowColor {
-    background-color: honeydew;
-}
-
-.altRowColor {
-    background-color: aliceblue
-}
-
 .container {
     display: inline-block;
 }
@@ -20,4 +12,13 @@ th, td {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 20px;
+}
+
+.buttonCell {
+    border: 0px;
+    padding: 0;
+}
+
+#addEventButton {
+    margin-top: 20px;
 }

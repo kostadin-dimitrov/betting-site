@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SportEvent } from '../models/sport-event.model';
 import { Observable } from 'rxjs/Observable';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class EventsService {
@@ -12,5 +13,16 @@ export class EventsService {
 
     getEvents(): Observable<SportEvent[]> {
         return this.http.get<SportEvent[]>(this.setRoute('event/GetEvents'));
+    }
+
+    updateEvents(event: SportEvent): Observable<boolean> {
+        debugger;
+        const httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type':  'application/json'
+            })
+        };
+
+        return this.http.post<boolean>(this.setRoute('event/SaveEvent'), event, httpOptions);
     }
 }

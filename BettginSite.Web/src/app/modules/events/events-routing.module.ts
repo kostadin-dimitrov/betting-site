@@ -8,6 +8,11 @@ import { NgModule } from '@angular/core';
 const routes: Routes = [
     {
         path: '',
+        redirectTo: 'events',
+        pathMatch: 'full'
+    },
+    {
+        path: 'events',
         component: PreviewEventsComponent
     },
     {

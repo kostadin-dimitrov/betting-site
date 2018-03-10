@@ -1,1 +1,28 @@
-<h1>Test</h1>
+<h1>Edit Sport Events</h1>
+<div class="container">
+    <div class="button">
+        <button id="reviewEventsButton" type="button" [routerLink]="['/events']">Review Events</button>
+    </div>
+    <table>
+        <tr>
+            <th>EventId</th>
+            <th>EventName</th>
+            <th>OddsForFirstTeam</th>
+            <th>OddsForDraw</th>
+            <th>OddsForSecondTeam</th>
+            <th>EventStartDate</th>
+        </tr>
+        <tr *ngFor="let event of events">
+            <td>{{ event.eventId }}</td>
+            <td>{{ event.name }}</td>
+            <td>{{ event.homeTeamOdds }}</td>
+            <td>{{ event.drawOdds }}</td>
+            <td>{{ event.awayTeamOdds }}</td>
+            <td>{{ event.startDate | date:'dd/MM/yyyy HH:mm' }}</td>
+            <td class="buttonCell"><button id="saveButton" (click)="saveEvent(event)">Save</button></td>
+            <td class="buttonCell"><button id="deleteButton" (click)="deleteEvent(event.id)">Delete</button></td>
+        </tr>
+    </table>
+    <button id="addEventButton" type="button" (click)="addEvent()">Add event</button>
+    <div *ngIf="hasError">Server error</div>
+</div>

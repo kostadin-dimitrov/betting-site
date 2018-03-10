@@ -18,8 +18,4 @@ export class PreviewEventsComponent implements OnInit {
             this.events = response;
         });
     }
-
-    openEditView() {
-        this.router.navigate(['edit-events'])
-    }
 }

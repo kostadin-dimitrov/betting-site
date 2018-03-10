@@ -10,24 +10,32 @@ namespace BettingSite.WebServices.Controllers
 {
     public class EventController : ApiController
     {
-        private EventRepository eventRepository;
+        private readonly IEventRepository eventRepository;
+
         public EventController()
         {
-            eventRepository = new EventRepository();
+            this.eventRepository = new EventRepository();
         }
 
         [HttpGet]
         public IHttpActionResult GetEvents()
         {
-           
-            var result = eventRepository.GetEvent();
+            var result = eventRepository.GetEvents();
+
+            return Ok(result);
+        }
+
+        [HttpPost]
+        public IHttpActionResult SaveEvent(SportEvent sportEvent)
+        {
+            var result = eventRepository.SaveEvent(sportEvent);
 
             return Ok(result);
         }
 
         protected override void Dispose(bool disposing)
         {
-            eventRepository.Dispose();
+            this.eventRepository.Dispose();
             base.Dispose(disposing);
         }
     }
