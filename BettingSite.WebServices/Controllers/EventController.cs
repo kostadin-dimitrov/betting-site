@@ -24,5 +24,11 @@ namespace BettingSite.WebServices.Controllers
 
             return Ok(result);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            eventRepository.Dispose();
+            base.Dispose(disposing);
+        }
     }
 }

@@ -65,6 +65,11 @@
     <Compile Include="Entities\Event.cs" />
     <Compile Include="EventDb.cs" />
     <Compile Include="EventRepository.cs" />
+    <Compile Include="Migrations\201803100756078_InitialCreate.cs" />
+    <Compile Include="Migrations\201803100756078_InitialCreate.Designer.cs">
+      <DependentUpon>201803100756078_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +90,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Database\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201803100756078_InitialCreate.resx">
+      <DependentUpon>201803100756078_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

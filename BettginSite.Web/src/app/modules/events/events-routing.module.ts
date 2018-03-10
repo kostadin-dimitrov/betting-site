@@ -1,11 +1,18 @@
 import { Routes, RouterModule } from '@angular/router';
-import { PreviewEventsComponent } from './components/preview-events.component';
+import { 
+    PreviewEventsComponent,
+    EditEventsComponent 
+} from './components';
 import { NgModule } from '@angular/core';
 
 const routes: Routes = [
     {
         path: '',
         component: PreviewEventsComponent
+    },
+    {
+        path: 'edit-events',
+        component: EditEventsComponent
     }
 ];
 

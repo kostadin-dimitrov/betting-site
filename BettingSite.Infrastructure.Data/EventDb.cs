@@ -10,10 +10,11 @@ namespace BettingSite.Infrastructure.Data
 {
     public class EventDb : DbContext
     {
-        public EventDb() : base()
+        public EventDb() : base("name=DefaultConnection")
         {
 
         }
+
         public DbSet<SportEvent> Events { get; set; }
     }
 }
