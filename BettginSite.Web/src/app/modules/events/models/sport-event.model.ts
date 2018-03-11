@@ -5,5 +5,5 @@ export interface SportEvent {
     homeTeamOdds: number;
     awayTeamOdds: number;
     drawOdds: number;
-    startDate: number;
+    startDate: Date;
 }

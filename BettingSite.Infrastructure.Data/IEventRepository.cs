@@ -11,7 +11,7 @@ namespace BettingSite.Infrastructure.Data
     {
         IEnumerable<SportEvent> GetEvents();
 
-        SportEvent GetEvent(Guid id);
+        SportEvent GetEvent(int eventId);
 
         bool SaveEvent(SportEvent sportEvent);
     }

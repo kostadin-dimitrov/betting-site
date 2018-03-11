@@ -24,16 +24,17 @@ namespace BettingSite.Infrastructure.Data
             return db.Events.ToList();
         }
 
-        public SportEvent GetEvent(Guid id)
+        public SportEvent GetEvent(int eventId)
         {
-            return db.Events.Where(x => x.Id == id).FirstOrDefault();
+            return db.Events.Where(x => x.EventId == eventId).FirstOrDefault();
         }
 
         public bool SaveEvent(SportEvent sportEvent)
         {
             try
             {
-                var dbEvent = GetEvent(sportEvent.Id);
+                sportEvent.StartDate = sportEvent.StartDate.ToUniversalTime();
+                var dbEvent = GetEvent(sportEvent.EventId);
                 if (dbEvent != null)
                 {
                     UpdateEvent(sportEvent, dbEvent);
@@ -69,6 +70,7 @@ namespace BettingSite.Infrastructure.Data
 
         private void AddEvent(SportEvent sportEvent)
         {
+            sportEvent.Id = Guid.NewGuid();
             db.Events.Add(sportEvent);
         }
     }

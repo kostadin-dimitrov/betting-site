@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { 
     PreviewEventsComponent,
-    EditEventsComponent 
+    EditEventsComponent
 } from './components';
 
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { EventsRouterModule } from './events-routing.module';
 import { EventsService } from './services/events.service';
 
 @NgModule({
     imports: [
         CommonModule,
-        EventsRouterModule
+        EventsRouterModule,
+        FormsModule
     ],
     declarations: [
         PreviewEventsComponent,

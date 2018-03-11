@@ -10,7 +10,9 @@ import { EventsService } from '../services/events.service';
 export class EditEventsComponent { 
 
     events: SportEvent[];
-    hasError: boolean = false;
+    showMessage: string;
+    private cellIndex: number;
+    private rowIndex: number;
     
     constructor(private eventService: EventsService) { }
 
@@ -18,6 +20,19 @@ export class EditEventsComponent {
         this.eventService.getEvents().subscribe(response => {
             this.events = response;
         });
+    }
+
+    toggle(cell, rowIndex) {
+       const cellIndex = cell.cellIndex;
+        this.cellIndex = cellIndex;
+        this.rowIndex = rowIndex;
+    }
+
+    isCellEdit(rowIndex, cell) {
+        if (this.cellIndex === cell.cellIndex && this.rowIndex ===rowIndex) {
+            return true;
+        }
+        return false;
     }
 
     addEvent() {
@@ -29,7 +44,7 @@ export class EditEventsComponent {
         homeTeamOdds: null,
         awayTeamOdds: null,
         drawOdds: null,
-        startDate: Date.now(),
+        startDate: new Date(Date.now()),
      }
      this.events.push(event);
     }
@@ -40,7 +55,14 @@ export class EditEventsComponent {
 
     saveEvent(event) {
         this.eventService.updateEvents(event).subscribe(response => {
-            this.hasError = response;
+            if(response) {
+                this.showMessage = "Event was updated."
+            }
+            this.showMessage = "There was error on the server and the event was not updated.";
         });
+    }
+
+    resetCell() {
+        debugger;
     }
 }

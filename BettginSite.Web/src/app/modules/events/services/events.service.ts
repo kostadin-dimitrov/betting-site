@@ -16,7 +16,6 @@ export class EventsService {
     }
 
     updateEvents(event: SportEvent): Observable<boolean> {
-        debugger;
         const httpOptions = {
             headers: new HttpHeaders({
               'Content-Type':  'application/json'
