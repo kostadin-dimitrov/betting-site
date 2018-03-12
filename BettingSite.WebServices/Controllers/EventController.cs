@@ -30,7 +30,29 @@ namespace BettingSite.WebServices.Controllers
         {
             var result = eventRepository.SaveEvent(sportEvent);
 
-            return Ok(result);
+            if (result)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost]
+        public IHttpActionResult DeleteEvent([FromBody] int eventId)
+        {
+            var result = eventRepository.DeleteEvent(int.Parse(eventId.ToString()));
+
+            if (result)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         protected override void Dispose(bool disposing)

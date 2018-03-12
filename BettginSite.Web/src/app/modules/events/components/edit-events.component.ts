@@ -17,9 +17,7 @@ export class EditEventsComponent {
     constructor(private eventService: EventsService) { }
 
     ngOnInit() {
-        this.eventService.getEvents().subscribe(response => {
-            this.events = response;
-        });
+        this.loadData();
     }
 
     toggle(cell, rowIndex) {
@@ -39,7 +37,7 @@ export class EditEventsComponent {
      const id = Math.max(...this.events.map(x => x.eventId)) + 1;
      const event: SportEvent = {
         id: "",
-        eventId: id,
+        eventId: id ? id : 1,
         name: '',
         homeTeamOdds: null,
         awayTeamOdds: null,
@@ -49,20 +47,32 @@ export class EditEventsComponent {
      this.events.push(event);
     }
 
-    deleteEvent(event) {
-        console.log(event);
+    deleteEvent(eventId: number) {
+        this.eventService.deleteEvent(eventId).subscribe(response => {
+            if (response) {
+                this.showMessage = "Event was deleted.";
+                this.loadData();
+            }
+            else {
+                this.showMessage = "There was error on the server and the event was not deleted.";
+            }
+        });
     }
 
     saveEvent(event) {
         this.eventService.updateEvents(event).subscribe(response => {
             if(response) {
-                this.showMessage = "Event was updated."
+                this.showMessage = "Event was updated.";
             }
-            this.showMessage = "There was error on the server and the event was not updated.";
+            else {
+                this.showMessage = "There was error on the server and the event was not updated.";
+            }
         });
     }
 
-    resetCell() {
-        debugger;
+    loadData() {
+        this.eventService.getEvents().subscribe(response => {
+            this.events = response;
+        });
     }
 }

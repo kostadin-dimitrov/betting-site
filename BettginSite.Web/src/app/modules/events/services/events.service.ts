@@ -24,4 +24,14 @@ export class EventsService {
 
         return this.http.post<boolean>(this.setRoute('event/SaveEvent'), event, httpOptions);
     }
+
+    deleteEvent(eventId: number): Observable<boolean> {
+        const httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type':  'application/json'
+            })
+        };
+
+        return this.http.post<boolean>(this.setRoute('event/DeleteEvent'), eventId, httpOptions);
+    }
 }

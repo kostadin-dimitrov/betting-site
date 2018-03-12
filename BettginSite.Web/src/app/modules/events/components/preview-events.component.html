@@ -1,6 +1,5 @@
 
 <h1>Sport Events</h1>
-<div>{{showMessage}}</div>
 <div class="container">
     <div class="button">
         <button id="editEventsButton" type="button" [routerLink]="['/edit-events']">Edit events</button>
@@ -15,10 +14,13 @@
         </tr>
         <tr *ngFor="let event of events; let i = index" [ngClass]="{'rowColor': i % 2 != 0, 'altRowColor': i % 2 == 0}">
             <td>{{ event.name }}</td>
-            <td>{{ event.homeTeamOdds }}</td>
-            <td>{{ event.drawOdds }}</td>
-            <td>{{ event.awayTeamOdds }}</td>
+            <td (click)="setMessage(event.eventId, event.homeTeamOdds, 'OddsForFirstTeam')">{{ event.homeTeamOdds }} </td>
+            <td (click)="setMessage(event.eventId, event.drawOdds, 'OddsForDraw')">{{ event.drawOdds }}</td>
+            <td (click)="setMessage(event.eventId, event.awayTeamOdds, 'OddsForSecondTeam')">{{ event.awayTeamOdds }}</td>
             <td>{{ event.startDate | date:'dd/MM/yyyy HH:mm' }}</td>
         </tr>
     </table>
+    <div class="message">
+        {{message}}
+    </div>
 </div>

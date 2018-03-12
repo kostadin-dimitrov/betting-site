@@ -14,5 +14,7 @@ namespace BettingSite.Infrastructure.Data
         SportEvent GetEvent(int eventId);
 
         bool SaveEvent(SportEvent sportEvent);
+
+        bool DeleteEvent(int eventId);
     }
 }

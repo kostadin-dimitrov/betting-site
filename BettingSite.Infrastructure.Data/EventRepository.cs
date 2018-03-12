@@ -54,6 +54,29 @@ namespace BettingSite.Infrastructure.Data
             return true;
         }
 
+        public bool DeleteEvent (int eventId)
+        {
+            try
+            {
+                var dbEvent = GetEvent(eventId);
+                if (dbEvent != null)
+                {
+                    db.Events.Remove(dbEvent);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public void Dispose()
         {
             db.Dispose();
